@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\Utils">
+      <UniqueIdentifier>{102102c1-5c22-4b2d-8746-732fa7bf48c7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Utils\Enum">
+      <UniqueIdentifier>{d35b3450-d2fb-400f-b6a6-8758f21ccb7f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Utils\Struct">
+      <UniqueIdentifier>{34baf76b-005d-48d8-be08-b7b7400186bb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GameLoop">
+      <UniqueIdentifier>{0753fa3c-ff9b-4ebd-87a0-5725d3414837}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GameLoop\Headers">
+      <UniqueIdentifier>{7a9e4ba9-f994-4b2a-8938-42ccbaf2ffe3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GameLoop\Sources">
+      <UniqueIdentifier>{c3b7df28-4ab8-4fd0-9399-4ddde5abf087}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="OpenGL.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GameInit.c">
+      <Filter>Source Files\GameLoop\Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="GameLoop.c">
+      <Filter>Source Files\GameLoop\Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="GameEvent.c">
+      <Filter>Source Files\GameLoop\Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="GameUpdate.c">
+      <Filter>Source Files\GameLoop\Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="GameRender.c">
+      <Filter>Source Files\GameLoop\Sources</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AppState.h">
+      <Filter>Source Files\Utils\Enum</Filter>
+    </ClInclude>
+    <ClInclude Include="ReturnType.h">
+      <Filter>Source Files\Utils\Enum</Filter>
+    </ClInclude>
+    <ClInclude Include="Database.h">
+      <Filter>Source Files\Utils\Struct</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLoopDatabase.h">
+      <Filter>Source Files\Utils\Struct</Filter>
+    </ClInclude>
+    <ClInclude Include="GameInit.h">
+      <Filter>Source Files\GameLoop\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="GameLoop.h">
+      <Filter>Source Files\GameLoop\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Window.h">
+      <Filter>Source Files\Utils\Struct</Filter>
+    </ClInclude>
+    <ClInclude Include="System.h">
+      <Filter>Source Files\Utils\Struct</Filter>
+    </ClInclude>
+    <ClInclude Include="GameEvent.h">
+      <Filter>Source Files\GameLoop\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="GameUpdate.h">
+      <Filter>Source Files\GameLoop\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="GameRender.h">
+      <Filter>Source Files\GameLoop\Headers</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
