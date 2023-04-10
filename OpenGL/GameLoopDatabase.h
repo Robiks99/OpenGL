@@ -1,10 +1,11 @@
 #ifndef GAMELOOPDATABASE_H
 #define GAMELOOPDATABASE_H
 
+#include"Entities.h"
 
 struct GameLoopDatabase
 {
-	int i;
+	struct Entities entities;
 };
 
 #endif // !GAMELOOPDATABASE_H

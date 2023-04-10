@@ -1,8 +1,13 @@
 #ifndef GAMEINIT_H
 #define GAMEINIT_H
 
-#include"database.h"
+#include"Database.h"
 #include"ReturnType.h"
+#include"LoadMesh.h"
+#include"LoadVertShader.h"
+#include"LoadFragShader.h"
+#include"CreateShaderProgram.h"
+//#include"Triangle.h"
 
 ReturnType GameInit(struct Database* a_database);
 

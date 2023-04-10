@@ -1,9 +1,15 @@
 #ifndef GAMELOOP_H
 #define GAMELOOP_H
 
-#include"ReturnType.h"
-#include"Database.h"
+#include<stdio.h>
 
-void GameLoop(struct Database* a_database);
+#include"Database.h"
+#include"ReturnType.h"
+#include"GameInit.h"
+#include"GameEvent.h"
+#include"GameUpdate.h"
+#include"GameRender.h"
+
+ReturnType GameLoop(struct Database* a_database);
 
 #endif // !GAMELOOP_H

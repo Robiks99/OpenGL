@@ -76,12 +76,12 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>D:\External Libs\glfw-3.3.8\include;D:\External Libs\glew-2.2.0\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Libraries\glfw\include;C:\Libraries\glew\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>D:\External Libs\glfw-3.3.8\lib-vc2022;D:\External Libs\glew-2.2.0\lib\Release\Win32</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Libraries\glfw\lib-vc2022;C:\Libraries\glew\lib\Release\Win32</AdditionalLibraryDirectories>
       <AdditionalDependencies>opengl32.lib;glew32.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -93,14 +93,14 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>D:\External Libs\glfw-3.3.8\include;D:\External Libs\glew-2.2.0\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Libraries\glfw\include;C:\Libraries\glew\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>D:\External Libs\glfw-3.3.8\lib-vc2022;D:\External Libs\glew-2.2.0\lib\Release\Win32</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Libraries\glfw\lib-vc2022;C:\Libraries\glew\lib\Release\Win32</AdditionalLibraryDirectories>
       <AdditionalDependencies>opengl32.lib;glew32.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -110,12 +110,12 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>D:\External Libs\glfw-3.3.8\include;D:\External Libs\glew-2.2.0\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Libraries\glfw\include;C:\Libraries\glew\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>D:\External Libs\glfw-3.3.8\lib-vc2022;D:\External Libs\glew-2.2.0\lib\Release\Win32</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Libraries\glfw\lib-vc2022;C:\Libraries\glew\lib\Release\Win32</AdditionalLibraryDirectories>
       <AdditionalDependencies>opengl32.lib;glew32.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -127,37 +127,49 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>D:\External Libs\glfw-3.3.8\include;D:\External Libs\glew-2.2.0\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Libraries\glfw\include;C:\Libraries\glew\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>D:\External Libs\glfw-3.3.8\lib-vc2022;D:\External Libs\glew-2.2.0\lib\Release\Win32</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Libraries\glfw\lib-vc2022;C:\Libraries\glew\lib\Release\Win32</AdditionalLibraryDirectories>
       <AdditionalDependencies>opengl32.lib;glew32.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CreateShaderProgram.c" />
     <ClCompile Include="GameEvent.c" />
     <ClCompile Include="GameInit.c" />
     <ClCompile Include="GameLoop.c" />
     <ClCompile Include="GameRender.c" />
     <ClCompile Include="GameUpdate.c" />
-    <ClCompile Include="LoadShape.c" />
+    <ClCompile Include="LoadFragShader.c" />
+    <ClCompile Include="LoadMesh.c" />
+    <ClCompile Include="LoadVertShader.c" />
     <ClCompile Include="OpenGL.c" />
+    <ClCompile Include="RenderMesh.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AppState.h" />
+    <ClInclude Include="CreateShaderProgram.h" />
     <ClInclude Include="Database.h" />
+    <ClInclude Include="Entities.h" />
     <ClInclude Include="GameEvent.h" />
     <ClInclude Include="GameInit.h" />
     <ClInclude Include="GameLoop.h" />
     <ClInclude Include="GameLoopDatabase.h" />
     <ClInclude Include="GameRender.h" />
     <ClInclude Include="GameUpdate.h" />
+    <ClInclude Include="LoadFragShader.h" />
+    <ClInclude Include="LoadMesh.h" />
+    <ClInclude Include="LoadVertShader.h" />
+    <ClInclude Include="Mesh.h" />
+    <ClInclude Include="OpenGL.h" />
+    <ClInclude Include="Player.h" />
+    <ClInclude Include="RenderMesh.h" />
     <ClInclude Include="ReturnType.h" />
-    <ClInclude Include="LoadShape.h" />
     <ClInclude Include="System.h" />
     <ClInclude Include="Triangle.h" />
     <ClInclude Include="Window.h" />

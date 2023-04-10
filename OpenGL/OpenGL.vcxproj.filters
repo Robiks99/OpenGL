@@ -31,6 +31,30 @@
     <Filter Include="Source Files\GameLoop\Sources">
       <UniqueIdentifier>{c3b7df28-4ab8-4fd0-9399-4ddde5abf087}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Managers">
+      <UniqueIdentifier>{9b261a91-cd6d-4c5d-8226-04d665f523c4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Managers\MeshManager">
+      <UniqueIdentifier>{160fe438-836a-42ed-ba86-37659b2f97a4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Managers\MeshManager\Sources">
+      <UniqueIdentifier>{8d29d3fb-cbab-422d-ba76-451e21a309b6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Managers\MeshManager\Headers">
+      <UniqueIdentifier>{14bc9a0a-430d-4ba4-94c8-7c70ce8e97aa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Shapes">
+      <UniqueIdentifier>{04d54828-0796-4ec7-be4f-82b7f3f668ae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Managers\ShaderManager">
+      <UniqueIdentifier>{53943745-68d1-4cc3-ad4c-3e439593e270}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Managers\ShaderManager\Headers">
+      <UniqueIdentifier>{39391944-a7bb-4de1-ab87-31e2404ff30f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Managers\ShaderManager\Sources">
+      <UniqueIdentifier>{d564126b-6469-473e-a1aa-549ff0ced1b0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="OpenGL.c">
@@ -50,6 +74,21 @@
     </ClCompile>
     <ClCompile Include="GameRender.c">
       <Filter>Source Files\GameLoop\Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="LoadMesh.c">
+      <Filter>Source Files\Managers\MeshManager\Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="LoadVertShader.c">
+      <Filter>Source Files\Managers\ShaderManager\Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="LoadFragShader.c">
+      <Filter>Source Files\Managers\ShaderManager\Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="CreateShaderProgram.c">
+      <Filter>Source Files\Managers\ShaderManager\Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderMesh.c">
+      <Filter>Source Files\Managers\MeshManager\Sources</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -85,6 +124,36 @@
     </ClInclude>
     <ClInclude Include="GameRender.h">
       <Filter>Source Files\GameLoop\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="LoadMesh.h">
+      <Filter>Source Files\Managers\MeshManager\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Triangle.h">
+      <Filter>Source Files\Shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Source Files\Utils\Struct</Filter>
+    </ClInclude>
+    <ClInclude Include="Mesh.h">
+      <Filter>Source Files\Utils\Struct</Filter>
+    </ClInclude>
+    <ClInclude Include="Entities.h">
+      <Filter>Source Files\Utils\Struct</Filter>
+    </ClInclude>
+    <ClInclude Include="LoadVertShader.h">
+      <Filter>Source Files\Managers\ShaderManager\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="LoadFragShader.h">
+      <Filter>Source Files\Managers\ShaderManager\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="CreateShaderProgram.h">
+      <Filter>Source Files\Managers\ShaderManager\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderMesh.h">
+      <Filter>Source Files\Managers\MeshManager\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGL.h">
+      <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
