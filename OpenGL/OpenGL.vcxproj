@@ -149,6 +149,7 @@
     <ClCompile Include="LoadMesh.c" />
     <ClCompile Include="LoadVertShader.c" />
     <ClCompile Include="OpenGL.c" />
+    <ClCompile Include="ReadTextFile.c" />
     <ClCompile Include="RenderMesh.c" />
   </ItemGroup>
   <ItemGroup>
@@ -168,11 +169,16 @@
     <ClInclude Include="Mesh.h" />
     <ClInclude Include="OpenGL.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="ReadTextFile.h" />
     <ClInclude Include="RenderMesh.h" />
     <ClInclude Include="ReturnType.h" />
     <ClInclude Include="System.h" />
     <ClInclude Include="Triangle.h" />
     <ClInclude Include="Window.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DefaultShader.frag" />
+    <None Include="DefaultShader.vert" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

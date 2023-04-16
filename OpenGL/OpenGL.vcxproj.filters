@@ -55,6 +55,24 @@
     <Filter Include="Source Files\Managers\ShaderManager\Sources">
       <UniqueIdentifier>{d564126b-6469-473e-a1aa-549ff0ced1b0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Managers\FileManager">
+      <UniqueIdentifier>{eee697f9-7068-40cc-9ca2-d7eb6111f002}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Managers\FileManager\Headers">
+      <UniqueIdentifier>{54010e6b-0208-4ea6-bc34-c94b0089044d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Managers\FileManager\Sources">
+      <UniqueIdentifier>{80621003-dc67-4096-b00b-d2a327d7969e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Shaders">
+      <UniqueIdentifier>{b107c9ef-2a0a-45f6-bcfb-0ed014324fa6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Shaders\Vert">
+      <UniqueIdentifier>{1bdf53b0-347d-419e-9a76-04e933d7375e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Shaders\Frag">
+      <UniqueIdentifier>{d4a2ffe3-7cb7-49dd-98a9-09270117ce7c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="OpenGL.c">
@@ -89,6 +107,9 @@
     </ClCompile>
     <ClCompile Include="RenderMesh.c">
       <Filter>Source Files\Managers\MeshManager\Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="ReadTextFile.c">
+      <Filter>Source Files\Managers\FileManager\Sources</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -155,5 +176,16 @@
     <ClInclude Include="OpenGL.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="ReadTextFile.h">
+      <Filter>Source Files\Managers\FileManager\Headers</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DefaultShader.vert">
+      <Filter>Source Files\Shaders\Vert</Filter>
+    </None>
+    <None Include="DefaultShader.frag">
+      <Filter>Source Files\Shaders\Frag</Filter>
+    </None>
   </ItemGroup>
 </Project>

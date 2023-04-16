@@ -30,16 +30,19 @@ void framebuffer_size_callback(GLFWwindow* window, int width, int height)
 
 ReturnType GameInit(struct Database* a_database)
 {
-		struct Player player = a_database->gameLoopDatabase.entities.player;
+	char* vertShader = NULL, *fragShader = NULL;
+	ReadTextFile("DefaultShader.vert", vertShader);
+	ReadTextFile("DefaultShader.frag", fragShader);
+	struct Player player = a_database->gameLoopDatabase.entities.player;
 
-		LoadMesh(Triangle,sizeof(Triangle), &player.mesh);
-		LoadVertShader(&player.mesh, vertex_shader_source);
-		LoadFragShader(&player.mesh, fragment_shader_source);
-		CreateShaderProgram(&player.mesh);
+	LoadMesh(Triangle,sizeof(Triangle), &player.mesh);
+	LoadVertShader(&player.mesh, vertShader);
+	LoadFragShader(&player.mesh, fragShader);
+	CreateShaderProgram(&player.mesh);
 
-		a_database->gameLoopDatabase.entities.player = player;
+	a_database->gameLoopDatabase.entities.player = player;
 
-		glClearColor(0.6f, 0.6f, 0.6f, 1.0f);
+	glClearColor(0.6f, 0.6f, 0.6f, 1.0f);
 
 		// Set the framebuffer size callback
 		//glfwSetFramebufferSizeCallback(a_database->system.window.window, framebuffer_size_callback);
