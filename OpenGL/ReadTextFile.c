@@ -1,51 +1,50 @@
 #include"ReadTextFile.h"
 
-ReturnType ReadTextFile(const char a_Path[], char* a_ProgramContent)
+char* ReadTextFile(const char a_Path[])
 {
-	ReturnType returnType = E_NOT_OK;
 	errno_t err;
 	FILE* file;
-	err = fopen_s(&file, a_Path, "rb");
+	char fileContent[2048] = {"\0"};
+
+	
+	//Open file
+	err = fopen_s(&file, a_Path, "r");
 	if (err != 0)
 	{
 		printf("Error opening file. Error: %d\n", err);
+		return NULL;
 	}
 
-	if (file)
+	//fread_s(fileContent,2048 , sizeof(char), 2048, file);
+	fread(fileContent, sizeof(char), 2048, file);
+
+	// Close file
+	fclose(file);
+
+	//Check amount of characters in file.
+	unsigned int fileSize = 0;
+	while (fileContent[fileSize] != '\0')
 	{
-		returnType = E_OK;
-
-        // Determine file size
-        fseek(file, 0, SEEK_END);
-        int fileSize = ftell(file);
-        fseek(file, 0, SEEK_SET);
-
-        // Allocate memory for char array
-        //char* fileContents = (char*)malloc(1000 + 1);
-        //fileContents = "\0";
-        //char a_ProgramContent[1000];
-        a_ProgramContent = (char*)malloc(1000 + 1);
-       /* if (fileContents == NULL) {
-            printf("Error allocating memory.\n");
-            fclose(file);
-        }*/
-
-        // Read file into char array
-        unsigned int bytesRead = fread(a_ProgramContent, sizeof(char), fileSize, file);
-        if (bytesRead != fileSize) {
-            printf("Error reading file.\n");
-            //free(fileContents);
-            fclose(file);
-        }
-
-        // Add null terminator to char array
-        a_ProgramContent[fileSize] = '\0';
-
-        // Close file and return char array
-        fclose(file);
-
-        //a_ProgramContent = fileContents;
+		fileSize++;
 	}
-	
-	return returnType;
+
+	char* fileContentPtr = (char*)malloc(sizeof(char) * fileSize + 1);
+	if (!fileContentPtr)
+	{
+		printf("Error allocating memory");
+		return NULL;
+	}
+
+	//Copy file from array to ptr
+	for (unsigned int i = 0; i < fileSize; i++)
+	{
+		fileContentPtr[i] = fileContent[i];
+	}
+	 // Add null terminator to char array
+	fileContentPtr[fileSize] = '\0';
+
+	//printf("file ptr:\n%s\n", fileContentPtr);
+	//printf("file:\n%s\n", fileContent);
+
+	return fileContentPtr;
 }

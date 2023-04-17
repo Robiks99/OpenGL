@@ -1,21 +1,5 @@
 #include"GameInit.h"
 
-const char* vertex_shader_source =
-"#version 330 core\n"
-"layout (location = 0) in vec3 aPos;\n"
-"void main()\n"
-"{\n"
-"    gl_Position = vec4(aPos.x, aPos.y, aPos.z, 1.0);\n"
-"}\n";
-
-const char* fragment_shader_source =
-"#version 330 core\n"
-"out vec4 FragColor;\n"
-"void main()\n"
-"{\n"
-"    FragColor = vec4(1.0f, 0.0f, 0.0f, 1.0f);\n"
-"}\n";
-
 GLfloat Triangle[] =
 {
 	-1.0f, -1.0f, 0.0f,
@@ -30,9 +14,9 @@ void framebuffer_size_callback(GLFWwindow* window, int width, int height)
 
 ReturnType GameInit(struct Database* a_database)
 {
-	char* vertShader = NULL, *fragShader = NULL;
-	ReadTextFile("DefaultShader.vert", vertShader);
-	ReadTextFile("DefaultShader.frag", fragShader);
+	char* vertShader = ReadTextFile("DefaultShader.vert");
+	char* fragShader = ReadTextFile("DefaultShader.frag");
+	
 	struct Player player = a_database->gameLoopDatabase.entities.player;
 
 	LoadMesh(Triangle,sizeof(Triangle), &player.mesh);

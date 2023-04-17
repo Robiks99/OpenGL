@@ -2,8 +2,7 @@
 #define READTEXTFILE_H
 
 #include<stdio.h>
-#include"ReturnType.h"
 
-ReturnType ReadTextFile(const char a_Path[], char* a_FileContent);
+char* ReadTextFile(const char a_Path[]);
 
 #endif // !READTEXTFILE_H
