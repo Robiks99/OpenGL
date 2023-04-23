@@ -1,11 +1,11 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
-#include"Mesh.h"
+#include"Model.h"
 
 struct Player
 {
-	struct Mesh mesh;
+	struct Model model;
 };
 
 #endif // !PLAYER_H

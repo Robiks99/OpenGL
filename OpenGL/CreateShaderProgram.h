@@ -2,9 +2,10 @@
 #define CREATESHADERPROGRAM_H
 
 #include"ReturnType.h"
-#include"Mesh.h"
+#include"Model.h"
 
-ReturnType CreateShaderProgram(struct Mesh* a_Mesh);
+
+ReturnType CreateShaderProgram(struct Model* a_Model);
 
 
 #endif // !CREATESHADERPROGRAM_H

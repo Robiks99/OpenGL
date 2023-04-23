@@ -8,6 +8,7 @@
 #include"LoadFragShader.h"
 #include"CreateShaderProgram.h"
 #include"ReadTextFile.h"
+#include"LoadMeshFromFile.h"
 //#include"Triangle.h"
 
 ReturnType GameInit(struct Database* a_database);

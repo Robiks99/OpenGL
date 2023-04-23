@@ -1,6 +1,6 @@
 #include"RenderMesh.h"
 
-ReturnType RenderMesh(struct Mesh a_Mesh)
+ReturnType RenderMesh(struct Model a_Mesh)
 {
     // Use shader program
     glUseProgram(a_Mesh.shaderProgram);

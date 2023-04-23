@@ -3,8 +3,8 @@
 
 #include <stdio.h>
 #include"ReturnType.h"
-#include"Mesh.h"
+#include"Model.h"
 
-ReturnType LoadVertShader(struct Mesh* a_Mesh, const char* a_VertShader);
+ReturnType LoadVertShader(struct Model* a_Model, const char* a_VertShader);
 
 #endif // !LOADVERTSHADER_H

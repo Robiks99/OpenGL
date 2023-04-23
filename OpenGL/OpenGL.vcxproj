@@ -76,7 +76,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>D:\External Libs\glfw\include;D:\External Libs\glew\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\External Libs\glfw\include;D:\External Libs\glew\include;D:\External Libs\cglm-master\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -93,7 +93,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>D:\External Libs\glfw\include;D:\External Libs\glew\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\External Libs\glfw\include;D:\External Libs\glew\include;D:\External Libs\cglm-master\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -110,7 +110,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>D:\External Libs\glfw\include;D:\External Libs\glew\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\External Libs\glfw\include;D:\External Libs\glew\include;D:\External Libs\cglm-master\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -127,7 +127,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>D:\External Libs\glfw\include;D:\External Libs\glew\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\External Libs\glfw\include;D:\External Libs\glew\include;D:\External Libs\cglm-master\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -147,6 +147,7 @@
     <ClCompile Include="GameUpdate.c" />
     <ClCompile Include="LoadFragShader.c" />
     <ClCompile Include="LoadMesh.c" />
+    <ClCompile Include="LoadMeshFromFile.c" />
     <ClCompile Include="LoadVertShader.c" />
     <ClCompile Include="OpenGL.c" />
     <ClCompile Include="ReadTextFile.c" />
@@ -165,10 +166,13 @@
     <ClInclude Include="GameUpdate.h" />
     <ClInclude Include="LoadFragShader.h" />
     <ClInclude Include="LoadMesh.h" />
+    <ClInclude Include="LoadMeshFromFile.h" />
     <ClInclude Include="LoadVertShader.h" />
     <ClInclude Include="Mesh.h" />
+    <ClInclude Include="Model.h" />
     <ClInclude Include="OpenGL.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="Polygon.h" />
     <ClInclude Include="ReadTextFile.h" />
     <ClInclude Include="RenderMesh.h" />
     <ClInclude Include="ReturnType.h" />

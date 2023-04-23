@@ -17,12 +17,14 @@ ReturnType GameInit(struct Database* a_database)
 	char* vertShader = ReadTextFile("DefaultShader.vert");
 	char* fragShader = ReadTextFile("DefaultShader.frag");
 	
+	LoadMeshFromFile("C:/Users/Robert/Desktop/cube.obj");
+
 	struct Player player = a_database->gameLoopDatabase.entities.player;
 
-	LoadMesh(Triangle,sizeof(Triangle), &player.mesh);
-	LoadVertShader(&player.mesh, vertShader);
-	LoadFragShader(&player.mesh, fragShader);
-	CreateShaderProgram(&player.mesh);
+	LoadMesh(Triangle,sizeof(Triangle), &player.model);
+	LoadVertShader(&player.model, vertShader);
+	LoadFragShader(&player.model, fragShader);
+	CreateShaderProgram(&player.model);
 
 	a_database->gameLoopDatabase.entities.player = player;
 

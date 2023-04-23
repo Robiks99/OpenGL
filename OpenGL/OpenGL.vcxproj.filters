@@ -73,6 +73,9 @@
     <Filter Include="Source Files\Shaders\Frag">
       <UniqueIdentifier>{d4a2ffe3-7cb7-49dd-98a9-09270117ce7c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Utils\Meshes">
+      <UniqueIdentifier>{1fec7d6d-98b9-46a6-a7ac-b9bd18fcc950}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="OpenGL.c">
@@ -109,6 +112,9 @@
       <Filter>Source Files\Managers\MeshManager\Sources</Filter>
     </ClCompile>
     <ClCompile Include="ReadTextFile.c">
+      <Filter>Source Files\Managers\FileManager\Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="LoadMeshFromFile.c">
       <Filter>Source Files\Managers\FileManager\Sources</Filter>
     </ClCompile>
   </ItemGroup>
@@ -155,7 +161,7 @@
     <ClInclude Include="Player.h">
       <Filter>Source Files\Utils\Struct</Filter>
     </ClInclude>
-    <ClInclude Include="Mesh.h">
+    <ClInclude Include="Model.h">
       <Filter>Source Files\Utils\Struct</Filter>
     </ClInclude>
     <ClInclude Include="Entities.h">
@@ -178,6 +184,15 @@
     </ClInclude>
     <ClInclude Include="ReadTextFile.h">
       <Filter>Source Files\Managers\FileManager\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="LoadMeshFromFile.h">
+      <Filter>Source Files\Managers\FileManager\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Mesh.h">
+      <Filter>Source Files\Utils\Struct</Filter>
+    </ClInclude>
+    <ClInclude Include="Polygon.h">
+      <Filter>Source Files\Utils\Struct</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

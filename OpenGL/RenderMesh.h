@@ -2,8 +2,8 @@
 #define RENDERMESH_H
 
 #include"ReturnType.h"
-#include"Mesh.h"
+#include"Model.h"
 
-ReturnType RenderMesh(struct Mesh a_Mesh);
+ReturnType RenderMesh(struct Model a_Model);
 
 #endif // !RENDERMESH_H
