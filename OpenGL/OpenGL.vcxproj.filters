@@ -191,7 +191,7 @@
     <ClInclude Include="Mesh.h">
       <Filter>Source Files\Utils\Struct</Filter>
     </ClInclude>
-    <ClInclude Include="Polygon.h">
+    <ClInclude Include="Vertex.h">
       <Filter>Source Files\Utils\Struct</Filter>
     </ClInclude>
   </ItemGroup>

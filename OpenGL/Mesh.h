@@ -1,12 +1,12 @@
 #ifndef MESH_H
 #define MESH_H
 
-#include"Polygon.h"
+#include"Vertex.h"
 
 struct Mesh
 {
 
-	struct Polygon* polygons;
+	struct Vertex* vertices;
 
 };
 

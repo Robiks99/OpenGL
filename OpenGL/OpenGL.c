@@ -14,7 +14,6 @@ ReturnType DatabaseInit(struct Database* database)
 		returnType = E_OK;
 	}
 
-
 	return returnType;
 }
 ReturnType WindowInit(struct Window* a_window)

@@ -9,6 +9,7 @@
 #include"CreateShaderProgram.h"
 #include"ReadTextFile.h"
 #include"LoadMeshFromFile.h"
+#include"Mesh.h"
 //#include"Triangle.h"
 
 ReturnType GameInit(struct Database* a_database);

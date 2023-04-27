@@ -11,12 +11,14 @@ ReturnType GameLoop(struct Database* a_database)
 	}
 	else
 	{
+		
 		while (a_database->system.appState == Game)
 		{
 			GameEvent(a_database);
 			GameUpdate(a_database);
 			GameRender(a_database);
 		}
+
 	}
 	
 
