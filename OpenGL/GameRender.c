@@ -3,12 +3,11 @@
 ReturnType GameRender(struct Database* a_database)
 {
 	// Clear window
-	glClear(GL_COLOR_BUFFER_BIT);
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	
-	RenderMesh(a_database->gameLoopDatabase.entities.player.model);
+	RenderMesh(&a_database->gameLoopDatabase.entities.player.model);
 
 	glfwSwapBuffers(a_database->system.window.window);
-
 
 	return E_OK;
 }

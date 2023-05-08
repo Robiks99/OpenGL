@@ -1,8 +1,13 @@
 #version 330 core
 layout (location = 0) in vec3 aPos;
-uniform float model;
+uniform mat4 model;
+uniform mat4 perspective;
+uniform mat4 view;
+
+out vec4 vCol;
 
 void main()
 {
-    gl_Position = vec4(aPos.x - model, aPos.y, aPos.z, 1.0);
+    gl_Position =  perspective * view * model * vec4(aPos.x, aPos.y, aPos.z, 1.0);
+    vCol = vec4(clamp(aPos, 0.0f, 1.0f), 1.0);
 }

@@ -5,7 +5,8 @@
 
 struct Player
 {
-	struct Model model;
+	int x;
+	//struct Model model;
 };
 
 #endif // !PLAYER_H

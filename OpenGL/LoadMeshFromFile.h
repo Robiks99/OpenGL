@@ -4,8 +4,9 @@
 #include<stdio.h>
 #include<string.h>
 #include<stdlib.h>
+#include"Vertex.h"
 #include"Model.h"
 
-struct Polygon* LoadMeshFromFile(const char a_Path[], struct Model* a_Model);
+struct Vertex* LoadMeshFromFile(const char a_Path[], struct Model* a_Model);
 
 #endif // !LOADMESHFROMFILE_H
