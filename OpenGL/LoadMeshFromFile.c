@@ -100,7 +100,7 @@ struct Vertex* LoadMeshFromFile(const char a_Path[],struct Model* a_Model)
 				//Assign correct texture coords according to indices
 				for (unsigned short int j = 0; j < 2; j++)
 				{
-					vertices[fCount].textureCoord[j] = vn[face[1]-1][j];
+					vertices[fCount].textureCoord[j] = vt[face[1]-1][j];
 				}
 				fCount++;
 			}
@@ -117,7 +117,7 @@ struct Vertex* LoadMeshFromFile(const char a_Path[],struct Model* a_Model)
 
 	for (unsigned short int i = 0; i < fCount; i++)
 	{
-		
+		printf("%d: ",i+1);
 		for (unsigned short int j = 0; j < 3; j++)
 		{
 			polygonsPtr[i].position[j] = vertices[i].position[j];
@@ -129,7 +129,9 @@ struct Vertex* LoadMeshFromFile(const char a_Path[],struct Model* a_Model)
 		for (unsigned short int j = 0; j < 2; j++)
 		{
 			polygonsPtr[i].textureCoord[j] = vertices[i].textureCoord[j];
+			printf("%f ", polygonsPtr[i].textureCoord[j]);
 		}
+		printf("\n");
 	}
 	
 	a_Model->mesh.vertices = polygonsPtr;

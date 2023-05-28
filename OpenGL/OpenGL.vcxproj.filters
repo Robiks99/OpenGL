@@ -76,6 +76,15 @@
     <Filter Include="Source Files\Utils\Meshes">
       <UniqueIdentifier>{1fec7d6d-98b9-46a6-a7ac-b9bd18fcc950}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Managers\TextureManager">
+      <UniqueIdentifier>{65e38d60-1cbc-42da-adb2-a75b9ccbc266}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Managers\TextureManager\Headers">
+      <UniqueIdentifier>{37b7a68d-cf1e-4578-ab8d-78130a01d420}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Managers\TextureManager\Sources">
+      <UniqueIdentifier>{d7b6af7f-fcfc-4915-9f03-1eb2d39ca132}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="OpenGL.c">
@@ -116,6 +125,12 @@
     </ClCompile>
     <ClCompile Include="LoadMeshFromFile.c">
       <Filter>Source Files\Managers\FileManager\Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="LoadTextureFromFile.c">
+      <Filter>Source Files\Managers\FileManager\Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="UseTexture.c">
+      <Filter>Source Files\Managers\TextureManager\Sources</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -193,6 +208,21 @@
     </ClInclude>
     <ClInclude Include="Vertex.h">
       <Filter>Source Files\Utils\Struct</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture.h">
+      <Filter>Source Files\Utils\Struct</Filter>
+    </ClInclude>
+    <ClInclude Include="ModelsId.h">
+      <Filter>Source Files\Utils\Enum</Filter>
+    </ClInclude>
+    <ClInclude Include="LoadTextureFromFile.h">
+      <Filter>Source Files\Managers\FileManager\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="UseTexture.h">
+      <Filter>Source Files\Managers\TextureManager\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="stb_image.h">
+      <Filter>Source Files\Utils</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

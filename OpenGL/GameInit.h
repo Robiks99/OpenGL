@@ -10,7 +10,7 @@
 #include"ReadTextFile.h"
 #include"LoadMeshFromFile.h"
 #include"Mesh.h"
-//#include"Triangle.h"
+#include"LoadTextureFromFile.h"
 
 ReturnType GameInit(struct Database* a_database);
 

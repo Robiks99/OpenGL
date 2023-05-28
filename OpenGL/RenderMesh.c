@@ -23,13 +23,13 @@ ReturnType RenderMesh(struct Model* a_Model)
 		if (offset < -10.0f)
 			inc = !inc;
 	}
-	printf("%ff\n", offset);
+	//printf("%ff\n", offset);
 	vec3 axis = { 1.0f, 0.0f, 0.0f };
 	glm_mat4_identity(a_Model->rotate);
 	glm_mat4_identity(a_Model->perspective);
 	glm_mat4_identity(a_Model->view);
 	glm_translate(a_Model->rotate, (vec3) { 0.0f, 0.0f, -5.0f });
-	glm_rotate(a_Model->rotate, offset * glm_rad(90.0f), (vec3) { 1.0f, 2.0f, 4.0f });
+	glm_rotate(a_Model->rotate, offset * glm_rad(90.0f), (vec3) { 0.0f, 40.0f, 0.0f });
 	glm_perspective(glm_rad(75.0f),800.0f/600.0f, 0.1f, 100.0f, a_Model->perspective);
 	//glm_translate(view, rotate);
 	/*for (size_t i = 0; i < 4; i++)

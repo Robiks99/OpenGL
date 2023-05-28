@@ -8,8 +8,8 @@
 struct Vertex
 {
 	vec3 position;
-	vec3 normal;
 	vec2 textureCoord;
+	vec3 normal;
 };
 
 #endif // !VERTEX_H

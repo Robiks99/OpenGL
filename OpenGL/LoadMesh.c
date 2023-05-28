@@ -1,8 +1,6 @@
 #include"LoadMesh.h"
 
-
-
-ReturnType LoadMesh(GLfloat a_Vertices[], int a_VerticesAmount, struct Model* a_Model)
+ReturnType LoadMesh(struct Model* a_Model)
 {
 
     // Create vertex buffer object and vertex array object
@@ -19,11 +17,16 @@ ReturnType LoadMesh(GLfloat a_Vertices[], int a_VerticesAmount, struct Model* a_
     // Set vertex attribute pointers
     // Vertex position
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(struct Vertex), (void*)0);
-    
     glEnableVertexAttribArray(0);
+    // Texture coords
+    glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, sizeof(struct Vertex), (void*)(sizeof(float) * 3));
+    glEnableVertexAttribArray(1);
+    // Normals
+    glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, sizeof(struct Vertex), (void*)(sizeof(float) * 5));
+    glEnableVertexAttribArray(2);
+    
     glBindBuffer(GL_ARRAY_BUFFER, 0);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
     glBindVertexArray(0);
-    printf("VAO: %d\n", a_Model->VAO);
-    printf("VBO: %d\n", a_Model->VBO);
 	return E_OK;
 }
