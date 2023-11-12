@@ -3,18 +3,21 @@
 #include"stb_image.h"
 ReturnType LoadTextureFromFile(struct Texture* a_Texture, const char* a_Path)
 {
+
 	if (!a_Texture)
 	{
 		printf("NULL pointer");
 		return E_NOT_OK;
 	}
-
+	stbi_set_flip_vertically_on_load(1);
 	unsigned char* textureFile = stbi_load(a_Path, &a_Texture->width, &a_Texture->height, &a_Texture->bitDepth, 0);
+
 	if (!textureFile)
 	{
 		printf("Failed to find: %s\n", a_Path);
 		return E_NOT_OK;
 	}
+
 
 	glGenTextures(1, &a_Texture->textureID);
 	glBindTexture(GL_TEXTURE_2D, a_Texture->textureID);

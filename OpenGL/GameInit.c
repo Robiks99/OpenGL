@@ -23,16 +23,14 @@ ReturnType GameInit(struct Database* a_database)
 	struct Model *models = a_database->models;
 	struct Mesh mesh = {0};
 
-	LoadMeshFromFile("C:/Users/Robert/Desktop/triangle.obj", &models[0]);
-	LoadTextureFromFile(&models[0].texture, "C:/Users/Robert/Desktop/test.png");
+	LoadMeshFromFile("C:/Users/Robert/Desktop/Sheep.obj", &models[0]);
+	LoadTextureFromFile(&models[0].texture, "C:/Users/Robert/Desktop/sheep.png");
 
 	LoadMesh(&models[0]);
 	LoadVertShader(&models[0], vertShader);
 	LoadFragShader(&models[0], fragShader);
 	CreateShaderProgram(&models[0]);
-	models[0].uniformModel = glGetUniformLocation(models[0].shaderProgram, "model");
-	models[0].uniformPerspective = glGetUniformLocation(models[0].shaderProgram, "perspective");
-	models[0].uniformView = glGetUniformLocation(models[0].shaderProgram, "view");
+	
 
 	a_database->gameLoopDatabase.entities.player = player;
 

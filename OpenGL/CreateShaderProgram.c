@@ -11,5 +11,9 @@ ReturnType CreateShaderProgram(struct Model* a_Model)
     glDeleteShader(a_Model->vertShader);
     glDeleteShader(a_Model->fragShader);
 
+    a_Model->uniformModel = glGetUniformLocation(a_Model->shaderProgram, "model");
+    a_Model->uniformPerspective = glGetUniformLocation(a_Model->shaderProgram, "perspective");
+    a_Model->uniformView = glGetUniformLocation(a_Model->shaderProgram, "view");
+
     return E_OK;
 }

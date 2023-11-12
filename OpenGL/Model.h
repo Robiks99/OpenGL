@@ -7,7 +7,7 @@
 
 struct Model
 {
-	GLuint VBO, VAO;//verts
+	GLuint VBO, VAO, EBO;//verts
 	GLuint vertShader, fragShader;//shaders
 	GLuint shaderProgram;//shader program
 	GLuint uniformModel;
@@ -16,7 +16,6 @@ struct Model
 	mat4 view;
 	mat4 rotate;
 	mat4 perspective;
-	unsigned vertexCount;
 	struct Mesh mesh;
 	struct Texture texture;
 };

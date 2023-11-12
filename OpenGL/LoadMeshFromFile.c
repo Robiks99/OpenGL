@@ -1,25 +1,41 @@
 #include"LoadMeshFromFile.h"
-#define MAX_BUFFER 10000
+#pragma warning (disable : 6262)
+#define waveFrontPrecision 1000000
 
-struct Vertex* LoadMeshFromFile(const char a_Path[],struct Model* a_Model)
+bool isVertexSame(struct Vertex vertex1, struct Vertex vertex2)
+{
+	if ((int)(vertex1.position[0] * waveFrontPrecision)		== (int)(vertex2.position[0] * waveFrontPrecision) &&
+		(int)(vertex1.position[1] * waveFrontPrecision)		== (int)(vertex2.position[1] * waveFrontPrecision) &&
+		(int)(vertex1.position[2] * waveFrontPrecision)		== (int)(vertex2.position[2] * waveFrontPrecision)&&
+		(int)(vertex1.normal[0] * waveFrontPrecision)		== (int)(vertex2.normal[0] * waveFrontPrecision) &&
+		(int)(vertex1.normal[1] * waveFrontPrecision)		== (int)(vertex2.normal[1] * waveFrontPrecision) &&
+		(int)(vertex1.normal[2] * waveFrontPrecision)		== (int)(vertex2.normal[2] * waveFrontPrecision)&&
+		(int)(vertex1.textureCoord[0] * waveFrontPrecision) == (int)(vertex2.textureCoord[0] * waveFrontPrecision) &&
+		(int)(vertex1.textureCoord[1] * waveFrontPrecision) == (int)(vertex2.textureCoord[1] * waveFrontPrecision))
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
+
+struct Vertex* LoadMeshFromFile(const char a_Path[], struct Model* a_Model)
 {
 	errno_t err;
 	FILE* file;
 	char fileLineContent[100] = { "\0" };
-	
-	float v[MAX_BUFFER][3] = {0};
-	unsigned short int vCount = 0;
-	
-	float vn[MAX_BUFFER][3] = {0};
-	unsigned short int vnCount = 0;
-	
-	float vt[MAX_BUFFER][2] = {0};
-	unsigned short int vtCount = 0;
 
-	unsigned short int face[3] = {0};
-	unsigned short int fCount = 0;
+	vec3 v[10000] = {0};
+	vec3 vn[10000] = {0};
+	vec2 vt[10000] = {0};
+	uivec3 indices[10000] = { 0 };
 
-	struct Vertex vertices[MAX_BUFFER] = {0};
+	unsigned short int vAmount = 0;
+	unsigned short int vnAmount = 0;
+	unsigned short int vtAmount = 0;
+	unsigned short int fAmount = 0;
 
 	//Open file
 	err = fopen_s(&file, a_Path, "r");
@@ -29,114 +45,135 @@ struct Vertex* LoadMeshFromFile(const char a_Path[],struct Model* a_Model)
 		return NULL;
 	}
 
+	//Set cursor at beggining of the file
 	fseek(file, 0L, SEEK_SET);
 
-	char* value = NULL;
-	char* faceNumber = NULL;
+	char value[100] = "\0";
 	char* token = NULL;
-	char* token2 = NULL;
-	//Go through every line of file
+
+	unsigned short int vCount = 0;
+	unsigned short int vnCount = 0;
+	unsigned short int vtCount = 0;
+	unsigned short int fCount = 0;
+
+
 	while (fgets(fileLineContent, 100, file))
 	{
 		//Split line in file
-		value = strtok_s(fileLineContent, " ", &token);
+		sscanf_s(fileLineContent, "%s", value, sizeof(value));
 
 		//Assign verts
 		if (strcmp(value, "v") == 0)
 		{
-			for (unsigned short int i = 0; i < 3; i++)
-			{
-				value = strtok_s(NULL, " ", &token);
-				v[vCount][i] = (float)atof(value);
-			}
+			sscanf_s(fileLineContent, "%*s %f %f %f",
+				&v[vCount][0],
+				&v[vCount][1],
+				&v[vCount][2]
+			);
 			vCount++;
 		}
 		//Assign normals
 		else if (strcmp(value, "vn") == 0)
 		{
-			for (unsigned short int i = 0; i < 3; i++)
-			{
-				value = strtok_s(NULL, " ", &token);
-				vn[vnCount][i] = atof(value);
-			}
+			sscanf_s(fileLineContent, "%*s %f %f %f",
+				&vn[vnCount][0],
+				&vn[vnCount][1],
+				&vn[vnCount][2]
+			);
 			vnCount++;
 		}
 		//Assign texture coords
 		else if (strcmp(value, "vt") == 0)
 		{
-			for (unsigned short int i = 0; i < 2; i++)
-			{
-				value = strtok_s(NULL, " ", &token);
-				vt[vtCount][i] = atof(value);
-			}
+			sscanf_s(fileLineContent, "%*s %f %f",
+				&vt[vtCount][0],
+				&vt[vtCount][1]
+			);
 			vtCount++;
 		}
-		//Match vertices with indices
+		//Assign indices
 		else if (strcmp(value, "f") == 0)
 		{
+			sscanf_s(fileLineContent, "%*s %u/%u/%u %u/%u/%u %u/%u/%u",
+				&indices[fCount + 0][0],
+				&indices[fCount + 0][1],
+				&indices[fCount + 0][2],
+				&indices[fCount + 1][0],
+				&indices[fCount + 1][1],
+				&indices[fCount + 1][2],
+				&indices[fCount + 2][0],
+				&indices[fCount + 2][1],
+				&indices[fCount + 2][2]
+			);
+			//Substract from indices to match OpenGL convention
+			indices[fCount + 0][0]--;
+			indices[fCount + 0][1]--;
+			indices[fCount + 0][2]--;
+			indices[fCount + 1][0]--;
+			indices[fCount + 1][1]--;
+			indices[fCount + 1][2]--;
+			indices[fCount + 2][0]--;
+			indices[fCount + 2][1]--;
+			indices[fCount + 2][2]--;
 
-			for (unsigned short int i = 0; i < 3; i++)
+			fCount += 3;
+		}
+
+	}
+
+	//We have counted amount of variables of each type so we can alloc memory for them
+	a_Model->mesh.indices = (unsigned int*)malloc(sizeof(unsigned int) * fCount);
+	a_Model->mesh.vertices = (struct Vertex*)malloc(sizeof(struct Vertex) * fCount);
+
+	unsigned int uniqueVertCount = 0;
+	//Assign vertexes and indices to fit OpenGL format
+	for (size_t i = 0; i < fCount; i++)
+	{
+		bool sameVertex = false;
+		struct Vertex vertex = { 0 };
+		memcpy(vertex.position, v[indices[i][0]], sizeof(vec3));
+		memcpy(vertex.textureCoord, vt[indices[i][1]], sizeof(vec2));
+		memcpy(vertex.normal, vn[indices[i][2]], sizeof(vec3));
+
+
+		for (size_t j = 0; j < uniqueVertCount; j++)
+		{
+			if (isVertexSame(a_Model->mesh.vertices[j], vertex))
 			{
-				//Get indices
-				value = strtok_s(NULL, " ", &token);
-				faceNumber = strtok_s(value, "/", &token2);
-
-				//Store indices for one polygon
-				for (unsigned short j = 0; j < 3; j++)
-				{
-					face[j] = atoi(faceNumber);
-					faceNumber = strtok_s(NULL, "/", &token2);
-				}
-				//Assign correct vertex position according to indices
-				for (unsigned short int j = 0; j < 3; j++)
-				{
-					vertices[fCount].position[j] = v[face[0]-1][j];
-				}
-				//Assign correct normals according to indices
-				for (unsigned short int j = 0; j < 3; j++)
-				{
-					vertices[fCount].normal[j] = vn[face[2]-1][j];
-				}
-				//Assign correct texture coords according to indices
-				for (unsigned short int j = 0; j < 2; j++)
-				{
-					vertices[fCount].textureCoord[j] = vt[face[1]-1][j];
-				}
-				fCount++;
+				sameVertex = true;
+				a_Model->mesh.indices[i] = j;
+				printf("same vert:%d\n",j);
+				break;
 			}
-			
 		}
 
+		if (!sameVertex)
+		{
+			printf("%d: v:[%f][%f][%f] vn:[%f][%f][%f] vt:[%f][%f]\n", uniqueVertCount,
+				vertex.position[0], vertex.position[1], vertex.position[2],
+				vertex.normal[0], vertex.normal[1], vertex.normal[2],
+				vertex.textureCoord[0], vertex.textureCoord[1]);
+			a_Model->mesh.vertices[uniqueVertCount] = vertex;
+			a_Model->mesh.indices[i] = uniqueVertCount;
+			uniqueVertCount++;
+		}
 	}
 
-	struct Vertex* polygonsPtr = (struct Polygon*)malloc(sizeof(struct Vertex) * fCount);
-	if (!polygonsPtr)
+	if (a_Model->mesh.vertices != NULL)
 	{
-		return NULL;
-	}
-
-	for (unsigned short int i = 0; i < fCount; i++)
-	{
-		printf("%d: ",i+1);
-		for (unsigned short int j = 0; j < 3; j++)
+		struct Vector *tempVector = (struct Vertex*)realloc(a_Model->mesh.vertices, sizeof(struct Vertex) * uniqueVertCount);
+		if(tempVector != NULL)
 		{
-			polygonsPtr[i].position[j] = vertices[i].position[j];
+			a_Model->mesh.vertices = tempVector;
 		}
-		for (unsigned short int j = 0; j < 3; j++)
-		{
-			polygonsPtr[i].normal[j] = vertices[i].normal[j];
-		}
-		for (unsigned short int j = 0; j < 2; j++)
-		{
-			polygonsPtr[i].textureCoord[j] = vertices[i].textureCoord[j];
-			printf("%f ", polygonsPtr[i].textureCoord[j]);
-		}
-		printf("\n");
 	}
 	
-	a_Model->mesh.vertices = polygonsPtr;
-	a_Model->vertexCount = fCount;
 
+	a_Model->mesh.vAmount = vAmount;
+	a_Model->mesh.vtAmount = vtAmount;
+	a_Model->mesh.vnAmount = vnAmount;
+	a_Model->mesh.fAmount = fCount;
+	a_Model->mesh.verticesCount = uniqueVertCount;
 
-	return polygonsPtr;
+	return NULL;
 }

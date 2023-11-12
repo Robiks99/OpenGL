@@ -4,7 +4,7 @@
 #include<cglm/mat3.h>
 #include<cglm/vec3.h>
 #include<cglm/vec2.h>
-
+//indices in wavefront .obj are /v/vt/vn
 struct Vertex
 {
 	vec3 position;
