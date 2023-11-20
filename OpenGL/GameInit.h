@@ -1,6 +1,8 @@
 #ifndef GAMEINIT_H
 #define GAMEINIT_H
 
+#include<cglm/cglm.h>
+
 #include"Database.h"
 #include"ReturnType.h"
 #include"LoadMesh.h"
@@ -11,6 +13,7 @@
 #include"LoadMeshFromFile.h"
 #include"Mesh.h"
 #include"LoadTextureFromFile.h"
+#include"UseTexture.h"
 
 ReturnType GameInit(struct Database* a_database);
 

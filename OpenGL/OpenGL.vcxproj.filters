@@ -85,6 +85,24 @@
     <Filter Include="Source Files\Managers\TextureManager\Sources">
       <UniqueIdentifier>{d7b6af7f-fcfc-4915-9f03-1eb2d39ca132}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Managers\EntityManager">
+      <UniqueIdentifier>{8df47b4b-4535-4785-a2bd-0dd2597c13d4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Managers\EntityManager\Headers">
+      <UniqueIdentifier>{191b0e84-e23d-40ce-9e0e-ecf673828cf3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Managers\EntityManager\Sources">
+      <UniqueIdentifier>{0cf3292b-84f2-49ef-a502-04f4d16acf1d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Managers\InputManager">
+      <UniqueIdentifier>{ce3f550d-a872-4eca-95c7-f227057e6791}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Managers\InputManager\Headers">
+      <UniqueIdentifier>{79275fc3-4244-465b-8780-f33ca8beacd2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Managers\InputManager\Sources">
+      <UniqueIdentifier>{aa4e36d3-99e5-4af7-905f-690a0e9bbcf1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="OpenGL.c">
@@ -131,6 +149,12 @@
     </ClCompile>
     <ClCompile Include="UseTexture.c">
       <Filter>Source Files\Managers\TextureManager\Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="MoveEntity.c">
+      <Filter>Source Files\Managers\EntityManager\Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="InputManager.c">
+      <Filter>Source Files\Managers\InputManager\Sources</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -223,6 +247,18 @@
     </ClInclude>
     <ClInclude Include="stb_image.h">
       <Filter>Source Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="MoveEntity.h">
+      <Filter>Source Files\Managers\EntityManager\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity.h">
+      <Filter>Source Files\Utils\Struct</Filter>
+    </ClInclude>
+    <ClInclude Include="InputManager.h">
+      <Filter>Source Files\Managers\InputManager\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>Source Files\Utils\Struct</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -2,11 +2,11 @@
 #define PLAYER_H
 
 #include"Model.h"
+#include"Entity.h"
 
 struct Player
 {
-	int x;
-	//struct Model model;
+	struct Entity entity;
 };
 
 #endif // !PLAYER_H

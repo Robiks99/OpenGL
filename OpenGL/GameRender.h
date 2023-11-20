@@ -5,6 +5,7 @@
 #include"Database.h"
 #include"RenderMesh.h"
 
+
 ReturnType GameRender(struct Database* a_database);
 
 #endif // !GAMERENDER_H

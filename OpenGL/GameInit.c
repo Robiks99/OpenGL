@@ -18,8 +18,11 @@ ReturnType GameInit(struct Database* a_database)
 	char* fragShader = ReadTextFile("DefaultShader.frag");
 	
 	glEnable(GL_DEPTH_TEST);
+	glfwSwapInterval(0);
 
-	struct Player player = a_database->gameLoopDatabase.entities.player;
+	a_database->system.deltaTime = 0.0f;
+
+	struct Player *player = &a_database->gameLoopDatabase.entities.player;
 	struct Model *models = a_database->models;
 	struct Mesh mesh = {0};
 
@@ -30,9 +33,11 @@ ReturnType GameInit(struct Database* a_database)
 	LoadVertShader(&models[0], vertShader);
 	LoadFragShader(&models[0], fragShader);
 	CreateShaderProgram(&models[0]);
+	glm_mat4_identity(models[0].rotate);
+	glm_mat4_identity(models[0].perspective);
+	glm_mat4_identity(models[0].view);
+	player->entity.model = models[0];
 	
-
-	a_database->gameLoopDatabase.entities.player = player;
 
 	glClearColor(0.6f, 0.6f, 0.6f, 1.0f);
 

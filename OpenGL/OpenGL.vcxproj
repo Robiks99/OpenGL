@@ -145,11 +145,13 @@
     <ClCompile Include="GameLoop.c" />
     <ClCompile Include="GameRender.c" />
     <ClCompile Include="GameUpdate.c" />
+    <ClCompile Include="InputManager.c" />
     <ClCompile Include="LoadFragShader.c" />
     <ClCompile Include="LoadMesh.c" />
     <ClCompile Include="LoadMeshFromFile.c" />
     <ClCompile Include="LoadTextureFromFile.c" />
     <ClCompile Include="LoadVertShader.c" />
+    <ClCompile Include="MoveEntity.c" />
     <ClCompile Include="OpenGL.c" />
     <ClCompile Include="ReadTextFile.c" />
     <ClCompile Include="RenderMesh.c" />
@@ -157,15 +159,18 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AppState.h" />
+    <ClInclude Include="Camera.h" />
     <ClInclude Include="CreateShaderProgram.h" />
     <ClInclude Include="Database.h" />
     <ClInclude Include="Entities.h" />
+    <ClInclude Include="Entity.h" />
     <ClInclude Include="GameEvent.h" />
     <ClInclude Include="GameInit.h" />
     <ClInclude Include="GameLoop.h" />
     <ClInclude Include="GameLoopDatabase.h" />
     <ClInclude Include="GameRender.h" />
     <ClInclude Include="GameUpdate.h" />
+    <ClInclude Include="InputManager.h" />
     <ClInclude Include="LoadFragShader.h" />
     <ClInclude Include="LoadMesh.h" />
     <ClInclude Include="LoadMeshFromFile.h" />
@@ -174,6 +179,7 @@
     <ClInclude Include="Mesh.h" />
     <ClInclude Include="Model.h" />
     <ClInclude Include="ModelsId.h" />
+    <ClInclude Include="MoveEntity.h" />
     <ClInclude Include="OpenGL.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="stb_image.h" />

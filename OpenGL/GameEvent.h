@@ -1,6 +1,7 @@
 #ifndef GAMEEVENT_H
 #define GAMEEVENT_H
 
+#include"InputManager.h"
 #include"Database.h"
 #include"ReturnType.h"
 

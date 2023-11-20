@@ -2,6 +2,7 @@
 #pragma warning (disable : 6262)
 #define waveFrontPrecision 1000000
 
+//Check if every component of Vectex is same
 bool isVertexSame(struct Vertex vertex1, struct Vertex vertex2)
 {
 	if ((int)(vertex1.position[0] * waveFrontPrecision)		== (int)(vertex2.position[0] * waveFrontPrecision) &&
@@ -21,7 +22,8 @@ bool isVertexSame(struct Vertex vertex1, struct Vertex vertex2)
 	}
 }
 
-struct Vertex* LoadMeshFromFile(const char a_Path[], struct Model* a_Model)
+
+enum ReturnType LoadMeshFromFile(const char a_Path[], struct Model* a_Model)
 {
 	errno_t err;
 	FILE* file;
@@ -42,7 +44,7 @@ struct Vertex* LoadMeshFromFile(const char a_Path[], struct Model* a_Model)
 	if (err != 0)
 	{
 		printf("Error opening file. Error: %d\n", err);
-		return NULL;
+		return E_NOT_OK;
 	}
 
 	//Set cursor at beggining of the file
@@ -135,45 +137,43 @@ struct Vertex* LoadMeshFromFile(const char a_Path[], struct Model* a_Model)
 		memcpy(vertex.textureCoord, vt[indices[i][1]], sizeof(vec2));
 		memcpy(vertex.normal, vn[indices[i][2]], sizeof(vec3));
 
-
+		//Search if new Vertex already exist
 		for (size_t j = 0; j < uniqueVertCount; j++)
 		{
 			if (isVertexSame(a_Model->mesh.vertices[j], vertex))
 			{
 				sameVertex = true;
 				a_Model->mesh.indices[i] = j;
-				printf("same vert:%d\n",j);
 				break;
 			}
 		}
 
+		//If Vertex is new just add it to an array
 		if (!sameVertex)
 		{
-			printf("%d: v:[%f][%f][%f] vn:[%f][%f][%f] vt:[%f][%f]\n", uniqueVertCount,
-				vertex.position[0], vertex.position[1], vertex.position[2],
-				vertex.normal[0], vertex.normal[1], vertex.normal[2],
-				vertex.textureCoord[0], vertex.textureCoord[1]);
 			a_Model->mesh.vertices[uniqueVertCount] = vertex;
 			a_Model->mesh.indices[i] = uniqueVertCount;
 			uniqueVertCount++;
 		}
 	}
 
+	//Array for vertexes was allocated with number of all indices and now that we found duplicates
+	//we can reduce array size
 	if (a_Model->mesh.vertices != NULL)
 	{
-		struct Vector *tempVector = (struct Vertex*)realloc(a_Model->mesh.vertices, sizeof(struct Vertex) * uniqueVertCount);
+		struct Vertex *tempVector = (struct Vertex*)realloc(a_Model->mesh.vertices, sizeof(struct Vertex) * uniqueVertCount);
 		if(tempVector != NULL)
 		{
 			a_Model->mesh.vertices = tempVector;
 		}
 	}
 	
-
+	//assign values to provided mesh
 	a_Model->mesh.vAmount = vAmount;
 	a_Model->mesh.vtAmount = vtAmount;
 	a_Model->mesh.vnAmount = vnAmount;
 	a_Model->mesh.fAmount = fCount;
 	a_Model->mesh.verticesCount = uniqueVertCount;
 
-	return NULL;
+	return E_OK;
 }
